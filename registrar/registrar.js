@@ -6,7 +6,17 @@ async function registrar() {
     cliente.nome = getById('nome').value;
     cliente.email = getById('email').value;
     cliente.documento = getById('documento').value;
+    
+    
     cliente.senha = getById('senha').value;
+    const confirmaSenha = getById('confirmaSenha').value;
+
+    //Verifica se as senhas batem
+    if(cliente.senha != confirmaSenha){
+      alert("Senhas não batem")
+      return
+    }
+
     // Realiza um tratamento especifico para os inputs do tipo 'radio':
     const radioPf = getById('radioPf');
     const radioPj = getById('radioPj');

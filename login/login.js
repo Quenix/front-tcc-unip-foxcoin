@@ -31,3 +31,12 @@ async function logar() {
     alert('Ocorreu um erro inesperado!');
   }
 }
+
+async function checkIfUserIsLogged(){
+  const usuarioLogado = buscarJsonLocalmente(KEY_USUARIO);
+
+  if(usuarioLogado){
+    const ehAdm = usuarioLogado.tipo == 'ADM';
+    redirecionarSemHistorico(`../home/home${ehAdm ? '-adm' : ''}.html`);
+  }
+}
